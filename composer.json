@@ -11,14 +11,16 @@
     }
   ],
   "require": {
-    "php": "^8.1",
+    "php": "^8.2",
     "laravel-zero/framework": "^10.0.2",
-    "nunomaduro/termwind": "^1.15.1"
+    "nunomaduro/termwind": "^1.15.1",
+    "ploi/ploi-php-sdk": "^1.9"
   },
   "require-dev": {
-    "laravel/pint": "^1.8",
-    "mockery/mockery": "^1.5.1",
-    "pestphp/pest": "^2.5"
+    "laravel/pint": "^1.10.2",
+    "mockery/mockery": "^1.6.2",
+    "pestphp/pest": "^2.7",
+    "phpstan/phpstan": "^1.10"
   },
   "autoload": {
     "psr-4": {
@@ -31,6 +33,17 @@
     "psr-4": {
       "Tests\\": "tests/"
     }
+  },
+  "scripts": {
+    "pint": [
+      "./vendor/bin/pint"
+    ],
+    "stan": [
+      "./vendor/bin/phpstan analyse --memory-limit=3g"
+    ],
+    "test": [
+      "./vendor/bin/pest"
+    ]
   },
   "config": {
     "preferred-install": "dist",
