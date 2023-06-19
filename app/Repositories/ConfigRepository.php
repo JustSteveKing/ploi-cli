@@ -35,6 +35,11 @@ final readonly class ConfigRepository
         return $this;
     }
 
+    public function string($key): string
+    {
+        return (string) $this->get($key);
+    }
+
     public function get($key, $default = null): array|int|string|null
     {
         return Arr::get($this->all(), $key, $default);

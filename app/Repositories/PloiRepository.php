@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use Ploi\Ploi;
+use Ploi\Resources\Server;
 
 final readonly class PloiRepository
 {
@@ -12,4 +13,9 @@ final readonly class PloiRepository
         protected ConfigRepository $config,
         protected Ploi $ploi,
     ) {}
+
+    public function servers(): Server
+    {
+        return $this->ploi->servers();
+    }
 }

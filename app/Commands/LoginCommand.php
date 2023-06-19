@@ -18,9 +18,15 @@ final class LoginCommand extends Command
     {
         $token = $this->option(
             key: 'token',
-        ) ?? $this->components->ask(
-            question: 'Please enter your Ploi API Token.',
         );
+
+        if (! $token) {
+            $this->components->error(
+                string: 'You need to pass your Ploi API token using the token argument.',
+            );
+
+            return SymfonyCommand::FAILURE;
+        }
 
         $config->set(
             key: 'token',

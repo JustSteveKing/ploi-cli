@@ -16,7 +16,7 @@ final class ConfigServiceProvider extends ServiceProvider
                 ? base_path('tests')
                 : ($_SERVER['HOME'] ?? $_SERVER['USERPROFILE']);
 
-            $path .= '/.ploi/config.json';
+            $path .= '/.config/ploi/config.json';
 
             return new ConfigRepository(
                 path: $path,
