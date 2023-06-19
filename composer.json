@@ -12,6 +12,7 @@
   ],
   "require": {
     "php": "^8.2",
+    "cuyz/valinor": "^1.4",
     "laravel-zero/framework": "^10.0.2",
     "nunomaduro/termwind": "^1.15.1",
     "ploi/ploi-php-sdk": "^1.9"

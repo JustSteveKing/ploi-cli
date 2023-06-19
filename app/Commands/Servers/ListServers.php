@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Commands\Servers;
 
+use App\Entities\ServerEntity;
 use App\Repositories\PloiRepository;
+use CuyZ\Valinor\MapperBuilder;
+use Illuminate\Support\Collection;
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Throwable;
@@ -34,5 +37,12 @@ final class ListServers extends Command
 
             return SymfonyCommand::SUCCESS;
         }
+
+        $collection = (new Collection(
+            items: $servers->getJson()->data,
+        ))->map(fn (array $server) => (new MapperBuilder())->mapper()->map(
+            signature: ServerEntity::class,
+            source: $server,
+        ));
     }
 }
